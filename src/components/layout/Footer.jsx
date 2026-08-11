@@ -1,0 +1,74 @@
+import React from 'react';
+import { Globe, Share2 } from 'lucide-react';
+
+const Logo = () => (
+  <div className="flex items-center gap-2">
+    <img src="/logo.png" alt="Sahulatcart" className="h-8 w-auto" />
+    <span className="font-kaisei font-bold text-xl text-text-primary tracking-tight">Sahulatcart</span>
+  </div>
+);
+
+const Footer = () => {
+  return (
+    <footer className="bg-white border-t border-border pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+          {/* Column 1 */}
+          <div className="md:col-span-2">
+            <Logo />
+            <p className="text-text-secondary text-sm max-w-xs mt-4 leading-relaxed">
+              Sahulatcart: Seamless commerce through the metaphor of flow. Pakistani commerce, evolved.
+            </p>
+          </div>
+
+          {/* Column 2 */}
+          <div>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Company</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">About</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Contact</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Careers</a></li>
+            </ul>
+          </div>
+
+          {/* Column 3 */}
+          <div>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Product</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Features</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Solutions</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Pricing</a></li>
+            </ul>
+          </div>
+
+          {/* Column 4 */}
+          <div>
+            <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Resources</h4>
+            <ul className="space-y-2">
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Blog</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Documentation</a></li>
+              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">FAQ</a></li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-sm text-text-secondary">
+            © 2024 Sahulatcart. Fluid Commerce for the Modern Merchant.
+          </p>
+          <div className="flex items-center gap-4">
+            <button className="text-text-secondary hover:text-primary transition-colors" aria-label="Region">
+              <Globe size={20} />
+            </button>
+            <button className="text-text-secondary hover:text-primary transition-colors" aria-label="Share">
+              <Share2 size={20} />
+            </button>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

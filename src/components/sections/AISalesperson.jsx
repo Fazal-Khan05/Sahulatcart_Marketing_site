@@ -213,12 +213,18 @@ const AISalesperson = () => {
             </p>
             
             <div className="mt-6 pt-6 border-t border-border/50">
-              <div className="flex flex-col gap-2.5">
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 3, delay: 0 }} className="h-2 w-16 bg-surface-alt rounded-full self-start" />
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 3, delay: 1 }} className="h-2 w-24 bg-primary-light rounded-full self-end" />
-                <motion.div animate={{ opacity: [0.4, 1, 0.4] }} transition={{ repeat: Infinity, duration: 3, delay: 2 }} className="h-2 w-12 bg-surface-alt rounded-full self-start" />
+              <div className="flex flex-col gap-2">
+                <div className="self-end bg-surface-alt rounded-xl rounded-tr-sm px-3 py-1.5 text-[11px] text-text-secondary">
+                  Yeh kitne ka hai?
+                </div>
+                <div className="self-start bg-primary-light rounded-xl rounded-tl-sm px-3 py-1.5 text-[11px] text-primary font-medium">
+                  Rs. 2,500 with free delivery! 🚚
+                </div>
+                <div className="self-end bg-surface-alt rounded-xl rounded-tr-sm px-3 py-1.5 text-[11px] text-text-secondary">
+                  Sahi hai, order kar do
+                </div>
               </div>
-              <div className="mt-4 text-[10px] text-text-secondary font-medium tracking-wide uppercase">
+              <div className="mt-3 text-[10px] text-text-secondary font-medium tracking-wide uppercase">
                 Roman Urdu • English • Punjabi
               </div>
             </div>

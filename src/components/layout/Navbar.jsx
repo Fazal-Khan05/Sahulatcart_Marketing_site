@@ -2,13 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import ComingSoon from '../ui/ComingSoon';
-
-const Logo = () => (
-  <div className="flex items-center gap-2">
-    <img src="/logo.png" alt="Sahulatcart" className="h-8 w-auto" />
-    <span className="font-kaisei font-bold text-xl text-text-primary tracking-tight">Sahulatcart</span>
-  </div>
-);
+import Logo from '../ui/Logo';
 
 const navLinks = [
   { name: 'Product', href: '#product' },
@@ -61,9 +55,7 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
-          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }} className="relative z-10">
-            <Logo />
-          </a>
+          <Logo className="relative z-10" />
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">

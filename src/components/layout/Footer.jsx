@@ -1,12 +1,6 @@
 import React from 'react';
 import { Globe, Share2 } from 'lucide-react';
-
-const Logo = () => (
-  <div className="flex items-center gap-2">
-    <img src="/logo.png" alt="Sahulatcart" className="h-8 w-auto" />
-    <span className="font-kaisei font-bold text-xl text-text-primary tracking-tight">Sahulatcart</span>
-  </div>
-);
+import Logo from '../ui/Logo';
 
 const Footer = () => {
   return (

@@ -55,9 +55,29 @@ export default function Hero() {
           </FadeInView>
 
           <FadeInView delay={0.1}>
-            <h1 className="font-kaisei text-5xl lg:text-6xl font-bold leading-tight text-text-primary mb-6">
-              Aap so jao.<br />
-              <span className="text-primary italic">AI karega sab kuch.</span>
+            <h1 className="font-kaisei text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              <span
+                style={{
+                  background: 'linear-gradient(to right, #6D7486, rgba(10, 13, 19, 0.7))',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Aap so jao.
+              </span>
+              <br />
+              <span
+                className="italic"
+                style={{
+                  background: 'linear-gradient(to bottom, #268D3C, #113320, #C2FFB4)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                AI karega sab kuch.
+              </span>
             </h1>
           </FadeInView>
 

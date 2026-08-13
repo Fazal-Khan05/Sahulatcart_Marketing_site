@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ShoppingBag, MessageSquare, Camera, Wallet } from 'lucide-react';
+import { ShoppingBag, MessageSquare, Briefcase, LayoutGrid } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
 
 const IntegrationBar = () => {
   const integrations = [
     { icon: ShoppingBag, name: 'Shopify', delay: 0 },
     { icon: MessageSquare, name: 'WhatsApp', delay: 0.2 },
-    { icon: Camera, name: 'Instagram', delay: 0.4 },
-    { icon: Wallet, name: 'Easypaisa', delay: 0.6 },
+    { icon: Briefcase, name: 'WhatsApp Business', delay: 0.4 },
+    { icon: LayoutGrid, name: 'WB Catalog', delay: 0.6 },
   ];
 
   return (

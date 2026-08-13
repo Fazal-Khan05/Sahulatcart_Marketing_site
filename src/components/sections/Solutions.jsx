@@ -248,8 +248,8 @@ const Solutions = () => {
               <ul className="space-y-4">
                 {[
                   'Real-time inventory sync',
-                  'COD verification & fraud detection',
-                  'TCS, Leopards, Trax integration',
+                  'Single click products fetch from shopify',
+                  'Import your shopify products file into our dashboard',
                   'Automatic order creation'
                 ].map((feature, idx) => (
                   <motion.li 

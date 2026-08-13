@@ -106,7 +106,8 @@ const Pricing = () => {
                 'Advanced AI with negotiation',
                 'Shopify integration',
                 'Priority support',
-                'Analytics dashboard'
+                'Analytics dashboard',
+                'CRM built for your business needs'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-white/80 shrink-0" />
@@ -142,7 +143,8 @@ const Pricing = () => {
                 'Custom AI training',
                 'Shopify integration',
                 'Priority support',
-                'Analytics dashboard'
+                'Analytics dashboard',
+                'CRM built for your business needs'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary shrink-0" />

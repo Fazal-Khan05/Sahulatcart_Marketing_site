@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Plug, Package, Settings, Bot, ShoppingCart, Sparkles, MessageCircle } from 'lucide-react';
+import { Plug, Package, Settings, Bot, ShoppingCart, Sparkles, MessageCircle, BarChart3 } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
 import StaggerContainer from '../animations/StaggerContainer';
 
@@ -10,6 +10,7 @@ const steps = [
   { id: 3, title: 'Define Rules', description: 'Set pricing rules, discounts, and auto-responses', icon: <Settings className="w-6 h-6" /> },
   { id: 4, title: 'Let AI Sell', description: 'AI handles conversations, negotiates, and recommends', icon: <Bot className="w-6 h-6" /> },
   { id: 5, title: 'Get Orders', description: 'Orders flow in automatically with full tracking', icon: <ShoppingCart className="w-6 h-6" /> },
+  { id: 6, title: 'Dashboard', description: 'Get realtime information in our dashboard', icon: <BarChart3 className="w-6 h-6" /> },
 ];
 
 export default function HowItWorks() {

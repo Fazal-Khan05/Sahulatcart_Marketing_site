@@ -31,13 +31,13 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
           >
             <div className="bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 relative overflow-hidden" onClick={(e) => e.stopPropagation()}>
               {/* Decorative bg */}
-              <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-primary-light opacity-50" />
-              <div className="absolute -bottom-16 -left-16 w-40 h-40 rounded-full bg-primary-light opacity-30" />
+              <div className="absolute -top-20 -right-20 w-48 h-48 rounded-full bg-primary-light opacity-50 pointer-events-none" />
+              <div className="absolute -bottom-16 -left-16 w-40 h-40 rounded-full bg-primary-light opacity-30 pointer-events-none" />
 
               {/* Close button */}
               <button
                 onClick={onClose}
-                className="absolute top-3 right-3 p-4 rounded-full hover:bg-surface-alt transition text-text-secondary hover:text-text-primary z-10"
+                className="absolute top-4 right-4 p-2 rounded-full hover:bg-surface-alt transition text-text-secondary hover:text-text-primary z-50"
               >
                 <X className="w-5 h-5" />
               </button>

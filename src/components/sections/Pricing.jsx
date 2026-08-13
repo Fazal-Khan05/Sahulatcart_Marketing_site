@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Check } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
+import ComingSoon from '../ui/ComingSoon';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -23,6 +24,8 @@ const itemVariants = {
 };
 
 const Pricing = () => {
+  const [comingSoonOpen, setComingSoonOpen] = useState(false);
+
   return (
     <section id="pricing" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -75,7 +78,10 @@ const Pricing = () => {
               ))}
             </ul>
             
-            <button className="border border-primary text-primary rounded-full w-full py-3 text-center font-medium hover:bg-primary-light transition mt-8">
+            <button 
+              onClick={() => setComingSoonOpen(true)}
+              className="border border-primary text-primary rounded-full w-full py-3 text-center font-medium hover:bg-primary-light transition mt-8"
+            >
               Start Free
             </button>
           </motion.div>
@@ -115,7 +121,10 @@ const Pricing = () => {
               ))}
             </ul>
             
-            <button className="bg-white text-primary rounded-full w-full py-3 text-center font-bold hover:bg-white/90 transition mt-8 shadow-md">
+            <button 
+              onClick={() => setComingSoonOpen(true)}
+              className="bg-white text-primary rounded-full w-full py-3 text-center font-bold hover:bg-white/90 transition mt-8 shadow-md"
+            >
               Start Growing
             </button>
           </motion.div>
@@ -152,12 +161,21 @@ const Pricing = () => {
               ))}
             </ul>
             
-            <button className="border border-primary text-primary rounded-full w-full py-3 text-center font-medium hover:bg-primary-light transition mt-8">
+            <button 
+              onClick={() => setComingSoonOpen(true)}
+              className="border border-primary text-primary rounded-full w-full py-3 text-center font-medium hover:bg-primary-light transition mt-8"
+            >
               Contact Sales
             </button>
           </motion.div>
         </motion.div>
       </div>
+
+      <ComingSoon 
+        isOpen={comingSoonOpen} 
+        onClose={() => setComingSoonOpen(false)} 
+        type="getStarted" 
+      />
     </section>
   );
 };

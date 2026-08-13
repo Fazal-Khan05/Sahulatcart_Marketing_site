@@ -63,7 +63,7 @@ const Pricing = () => {
             
             <ul className="flex-1 space-y-4">
               {[
-                'Up to 50 conversations/mo',
+                '5 conversations/day',
                 'Basic AI responses',
                 '1 WhatsApp number',
                 'Email support'
@@ -92,7 +92,7 @@ const Pricing = () => {
             <div className="mb-6">
               <h3 className="text-xl font-bold text-white mb-2">Growth</h3>
               <div className="flex items-baseline gap-1">
-                <span className="text-4xl font-bold text-white">Rs. 2,500</span>
+                <span className="text-4xl font-bold text-white">Rs. 5,000</span>
                 <span className="text-white/60 text-lg">/mo</span>
               </div>
               <p className="text-white/70 text-sm mt-2">For growing businesses</p>
@@ -104,7 +104,6 @@ const Pricing = () => {
               {[
                 'Up to 500 conversations/mo',
                 'Advanced AI with negotiation',
-                'Automated cart recovery',
                 'Shopify integration',
                 'Priority support',
                 'Analytics dashboard'
@@ -141,10 +140,9 @@ const Pricing = () => {
               {[
                 'Unlimited conversations',
                 'Custom AI training',
-                'Multiple WhatsApp numbers',
-                'API access',
-                'Dedicated account manager',
-                'SLA guarantee'
+                'Shopify integration',
+                'Priority support',
+                'Analytics dashboard'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary shrink-0" />

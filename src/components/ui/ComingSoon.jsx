@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Bell } from 'lucide-react';
 
@@ -5,6 +6,40 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
   const titles = {
     login: 'Login',
     getStarted: 'Get Started',
+  };
+
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, loading, success, error
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('loading');
+    
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "36dc09ed-8b31-44e3-ae72-39ca50010617",
+          email: email,
+          subject: "New Waitlist Signup from Sahulatcart",
+          from_name: "Sahulatcart Waitlist",
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setStatus('success');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -67,25 +102,52 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
                 </p>
 
                 {/* Email signup */}
-                <div className="flex flex-col sm:flex-row gap-2 mb-6">
-                  <input
-                    type="email"
-                    placeholder="you@example.com"
-                    className="flex-1 px-4 py-3 rounded-full border border-border bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition w-full"
-                  />
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-primary text-white rounded-full px-6 py-3 text-sm font-semibold hover:bg-primary-dark transition flex items-center justify-center gap-2 shrink-0 w-full sm:w-auto"
+                {status === 'success' ? (
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    className="bg-primary-light/50 border border-primary/20 rounded-2xl p-6 mb-6"
                   >
-                    <Bell className="w-4 h-4" />
-                    Notify Me
-                  </motion.button>
-                </div>
-
-                <p className="text-text-secondary text-xs">
-                  No spam, we promise. Only launch updates.
-                </p>
+                    <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center mx-auto mb-3">
+                      <Sparkles className="w-6 h-6" />
+                    </div>
+                    <h3 className="text-primary font-bold text-lg mb-1">You're on the list!</h3>
+                    <p className="text-text-secondary text-sm">We'll let you know as soon as it's ready.</p>
+                  </motion.div>
+                ) : (
+                  <>
+                    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2 mb-4">
+                      <input
+                        type="email"
+                        required
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        placeholder="you@example.com"
+                        className="flex-1 px-4 py-3 rounded-full border border-border bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition w-full"
+                      />
+                      <motion.button
+                        type="submit"
+                        disabled={status === 'loading'}
+                        whileHover={status !== 'loading' ? { scale: 1.05 } : {}}
+                        whileTap={status !== 'loading' ? { scale: 0.95 } : {}}
+                        className={`text-white rounded-full px-6 py-3 text-sm font-semibold transition flex items-center justify-center gap-2 shrink-0 w-full sm:w-auto ${status === 'loading' ? 'bg-primary/70 cursor-not-allowed' : 'bg-primary hover:bg-primary-dark'}`}
+                      >
+                        {status === 'loading' ? (
+                          <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                        ) : (
+                          <Bell className="w-4 h-4" />
+                        )}
+                        {status === 'loading' ? 'Sending...' : 'Notify Me'}
+                      </motion.button>
+                    </form>
+                    {status === 'error' && (
+                      <p className="text-red-500 text-xs mb-2">Oops! Something went wrong. Please try again.</p>
+                    )}
+                    <p className="text-text-secondary text-xs">
+                      No spam, we promise. Only launch updates.
+                    </p>
+                  </>
+                )}
               </div>
             </div>
           </motion.div>

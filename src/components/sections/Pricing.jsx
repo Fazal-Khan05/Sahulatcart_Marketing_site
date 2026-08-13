@@ -66,10 +66,11 @@ const Pricing = () => {
             
             <ul className="flex-1 space-y-4">
               {[
-                '5 conversations/day',
-                'Basic AI responses',
-                '1 WhatsApp number',
-                'Email support'
+                'WhatsApp AI salesman — 24/7',
+                'Bhao-taao engine + price guard',
+                '5 conversations / day',
+                'COD + bank transfer + slips',
+                'Merchant portal + inbox'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-primary shrink-0" />

@@ -67,16 +67,16 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
                 </p>
 
                 {/* Email signup */}
-                <div className="flex gap-2 mb-6">
+                <div className="flex flex-col sm:flex-row gap-2 mb-6">
                   <input
                     type="email"
                     placeholder="you@example.com"
-                    className="flex-1 px-4 py-3 rounded-full border border-border bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                    className="flex-1 px-4 py-3 rounded-full border border-border bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition w-full"
                   />
                   <motion.button
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="bg-primary text-white rounded-full px-6 py-3 text-sm font-semibold hover:bg-primary-dark transition flex items-center gap-2 shrink-0"
+                    className="bg-primary text-white rounded-full px-6 py-3 text-sm font-semibold hover:bg-primary-dark transition flex items-center justify-center gap-2 shrink-0 w-full sm:w-auto"
                   >
                     <Bell className="w-4 h-4" />
                     Notify Me

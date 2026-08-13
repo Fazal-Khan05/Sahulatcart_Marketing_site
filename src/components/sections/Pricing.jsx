@@ -153,7 +153,7 @@ const Pricing = () => {
                 'Unlimited conversations',
                 'Custom AI training',
                 'Shopify integration',
-                'Priority support',
+                'Priority support (On WhatsApp)',
                 'Analytics dashboard',
                 'CRM built for your business needs',
                 'Voice notes — Urdu/Punjabi samajhta hai',

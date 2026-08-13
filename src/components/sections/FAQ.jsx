@@ -24,13 +24,10 @@ const faqs = [
     question: "What about COD orders?",
     answer: "We have built-in COD verification. The AI confirms addresses, validates phone numbers, and can even require advance payment for high-risk orders."
   },
-  {
-    question: "Which courier services are supported?",
-    answer: "We integrate with TCS, Leopards, and Trax for automated shipping label generation, tracking, and delivery updates."
-  },
+
   {
     question: "Is there a free plan?",
-    answer: "Yes! Our Starter plan is completely free with up to 50 conversations per month. No credit card required."
+    answer: "Yes! Our Starter plan is completely free with up to 5 conversations per day. No credit card required."
   },
   {
     question: "How long does setup take?",
@@ -50,7 +47,7 @@ const FAQ = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <FadeInView className="text-center mb-16">
           <span className="inline-block px-4 py-1.5 rounded-full bg-primary-light text-primary text-sm font-semibold mb-4 tracking-wide">
-            ❓ FAQ
+            FAQ
           </span>
           <h2 className="font-kaisei text-4xl lg:text-5xl font-bold text-text-primary mb-6">
             Frequently Asked Questions
@@ -106,9 +103,7 @@ const FAQ = () => {
               <button className="bg-white text-primary rounded-full px-6 py-3 font-medium hover:bg-white/90 transition shadow-sm w-full sm:w-auto">
                 Contact Support
               </button>
-              <button className="border border-white/30 text-white rounded-full px-6 py-3 font-medium hover:bg-white/10 transition w-full sm:w-auto">
-                Read Docs
-              </button>
+
             </div>
           </div>
         </FadeInView>

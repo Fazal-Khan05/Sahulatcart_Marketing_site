@@ -106,8 +106,7 @@ const Pricing = () => {
                 'Advanced AI with negotiation',
                 'Shopify integration',
                 'Priority support',
-                'Analytics dashboard',
-                'CRM built for your business needs'
+                'Analytics dashboard'
               ].map((feature, i) => (
                 <li key={i} className="flex items-center gap-2">
                   <Check className="w-5 h-5 text-white/80 shrink-0" />

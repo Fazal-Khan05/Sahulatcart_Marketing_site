@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { FileText, Truck } from 'lucide-react';
+import { FileText, TrendingUp } from 'lucide-react';
 
 const ChatToCheckout = () => {
   const containerVariants = {
@@ -73,12 +73,12 @@ const ChatToCheckout = () => {
               </div>
             </div>
 
-            {/* Courier Sync Pill */}
+            {/* Upselling Pill */}
             <div className="bg-white/10 backdrop-blur-sm text-white rounded-full px-6 py-3 flex items-center gap-3 border border-white/20">
-              <Truck className="w-5 h-5 text-white" />
+              <TrendingUp className="w-5 h-5 text-white" />
               <div className="text-left">
-                <div className="font-medium">Courier Sync</div>
-                <div className="text-white/60 text-xs">TCS &amp; Leopards integrated</div>
+                <div className="font-medium">Automatic upselling</div>
+                <div className="text-white/60 text-xs">Boost average order value</div>
               </div>
             </div>
           </motion.div>

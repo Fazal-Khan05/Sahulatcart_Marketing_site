@@ -27,7 +27,7 @@ export default function HowItWorks() {
             From customer message to order — automatically.
           </h2>
           <p className="text-text-secondary text-center max-w-2xl text-lg">
-            Get started in under 10 minutes. No coding required.
+            Get started in under 10 minutes.
           </p>
         </FadeInView>
 

@@ -49,7 +49,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-text-secondary">
-            © 2024 Sahulatcart. Fluid Commerce for the Modern Merchant.
+            © 2026 Sahulatcart. Fluid Commerce for the Modern Merchant.
           </p>
           <div className="flex items-center gap-4">
             <button className="text-text-secondary hover:text-primary transition-colors" aria-label="Region">

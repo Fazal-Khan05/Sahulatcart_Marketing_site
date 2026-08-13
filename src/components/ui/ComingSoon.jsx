@@ -94,7 +94,15 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
                 </h2>
 
                 <p className="text-text-secondary mb-2 text-lg">
-                  <span className="font-semibold text-primary">{titles[type]}</span> is under construction.
+                  {type === 'getStarted' ? (
+                    <>
+                      <span className="font-semibold text-primary">Get Early Access</span> to Sahulatcart.
+                    </>
+                  ) : (
+                    <>
+                      <span className="font-semibold text-primary">{titles[type]}</span> is under construction.
+                    </>
+                  )}
                 </p>
 
                 <p className="text-text-secondary text-sm mb-8 leading-relaxed">

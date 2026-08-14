@@ -37,9 +37,7 @@ const Navbar = () => {
   return (
     <>
       <motion.nav
-        className={`fixed top-0 inset-x-0 z-50 transition-colors duration-300 ${
-          isScrolled ? 'bg-white/80 backdrop-blur-xl border-b border-border' : 'bg-transparent border-b border-transparent'
-        }`}
+        className="fixed top-0 inset-x-0 z-50 bg-white/80 backdrop-blur-xl border-b border-border transition-colors duration-300"
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}

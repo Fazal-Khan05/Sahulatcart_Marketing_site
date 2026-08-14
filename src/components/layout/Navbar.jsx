@@ -6,7 +6,7 @@ import ComingSoon from '../ui/ComingSoon';
 import Logo from '../ui/Logo';
 
 const navLinks = [
-  { name: 'Product', href: '/product' },
+  { name: 'Home', href: '/' },
   { name: 'Solutions', href: '/solutions' },
   { name: 'How It Works', href: '/how-it-works' },
   { name: 'Pricing', href: '/pricing' },
@@ -55,6 +55,7 @@ const Navbar = () => {
               <NavLink
                 key={link.name}
                 to={link.href}
+                end={link.href === '/'}
                 className={({ isActive }) =>
                   `text-[15px] transition-colors ${
                     isActive
@@ -110,6 +111,7 @@ const Navbar = () => {
                 <NavLink
                   key={link.name}
                   to={link.href}
+                  end={link.href === '/'}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={({ isActive }) =>
                     `text-lg border-b border-border/50 pb-3 transition-colors ${

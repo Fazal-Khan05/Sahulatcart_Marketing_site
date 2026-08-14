@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
-import Product from './pages/Product';
 import Solutions from './pages/Solutions';
 import HowItWorks from './pages/HowItWorks';
 import Pricing from './pages/Pricing';
@@ -18,7 +17,6 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/product" element={<Product />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/pricing" element={<Pricing />} />

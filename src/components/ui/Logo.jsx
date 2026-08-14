@@ -6,9 +6,7 @@ import React from 'react';
  * "cart" — vertical gradient: medium green (#268D3C) → forest green (#113320) → mint green (#C2FFB4)
  */
 const Logo = ({ className = '' }) => (
-  <a
-    href="#"
-    onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+  <div
     className={`flex items-center gap-2 ${className}`}
   >
     <img src="/logo.png" alt="Sahulatcart" className="h-8 w-auto" />
@@ -52,7 +50,7 @@ const Logo = ({ className = '' }) => (
         cart
       </text>
     </svg>
-  </a>
+  </div>
 );
 
 export default Logo;

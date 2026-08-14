@@ -1,32 +1,33 @@
-import Navbar from './components/layout/Navbar'
-import Hero from './components/sections/Hero'
-import IntegrationBar from './components/sections/IntegrationBar'
-import AISalesperson from './components/sections/AISalesperson'
-import RuleEngine from './components/sections/RuleEngine'
-import Solutions from './components/sections/Solutions'
-import HowItWorks from './components/sections/HowItWorks'
-import Pricing from './components/sections/Pricing'
-import FAQ from './components/sections/FAQ'
-import ChatToCheckout from './components/sections/ChatToCheckout'
-import Footer from './components/layout/Footer'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/layout/Navbar';
+import Footer from './components/layout/Footer';
+import Home from './pages/Home';
+import Product from './pages/Product';
+import Solutions from './pages/Solutions';
+import HowItWorks from './pages/HowItWorks';
+import Pricing from './pages/Pricing';
+import Resources from './pages/Resources';
+import ScrollToTop from './components/utils/ScrollToTop';
 
 function App() {
   return (
-    <div className="min-h-screen bg-surface overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <IntegrationBar />
-        <AISalesperson />
-        <RuleEngine />
-        <Solutions />
-        <HowItWorks />
-        <Pricing />
-        <ChatToCheckout />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <Router>
+      <ScrollToTop />
+      <div className="min-h-screen bg-surface overflow-x-hidden">
+        <Navbar />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/product" element={<Product />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/resources" element={<Resources />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   )
 }
 

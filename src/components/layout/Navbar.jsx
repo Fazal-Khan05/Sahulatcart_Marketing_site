@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { NavLink } from 'react-router-dom';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import ComingSoon from '../ui/ComingSoon';
 import Logo from '../ui/Logo';
 
 const navLinks = [
-  { name: 'Product', href: '#product' },
-  { name: 'Solutions', href: '#solutions' },
-  { name: 'How It Works', href: '#how-it-works' },
-  { name: 'Pricing', href: '#pricing' },
-  { name: 'Resources', href: '#resources' },
+  { name: 'Product', href: '/product' },
+  { name: 'Solutions', href: '/solutions' },
+  { name: 'How It Works', href: '/how-it-works' },
+  { name: 'Pricing', href: '/pricing' },
+  { name: 'Resources', href: '/resources' },
 ];
 
 const Navbar = () => {
@@ -17,33 +18,7 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const [comingSoonType, setComingSoonType] = useState('login');
-  const [activeSection, setActiveSection] = useState('');
   const { scrollY } = useScroll();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      },
-      { rootMargin: '-20% 0px -60% 0px' }
-    );
-
-    navLinks.forEach((link) => {
-      if (link.href.startsWith('#')) {
-        const id = link.href.substring(1);
-        const element = document.getElementById(id);
-        if (element) {
-          observer.observe(element);
-        }
-      }
-    });
-
-    return () => observer.disconnect();
-  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -52,18 +27,6 @@ const Navbar = () => {
       setIsScrolled(false);
     }
   });
-
-  const handleSmoothScroll = (e, href) => {
-    e.preventDefault();
-    setIsMobileMenuOpen(false);
-    setActiveSection(href);
-    if (href.startsWith('#')) {
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }
-  };
 
   const openComingSoon = (type) => {
     setComingSoonType(type);
@@ -82,23 +45,26 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
-          <Logo className="relative z-10" />
+          <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+            <Logo className="relative z-10" />
+          </NavLink>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <a
+              <NavLink
                 key={link.name}
-                href={link.href}
-                onClick={(e) => handleSmoothScroll(e, link.href)}
-                className={`text-[15px] transition-colors ${
-                  activeSection === link.href 
-                    ? 'font-semibold text-primary' 
-                    : 'font-medium text-text-secondary hover:text-primary'
-                }`}
+                to={link.href}
+                className={({ isActive }) =>
+                  `text-[15px] transition-colors ${
+                    isActive
+                      ? 'font-semibold text-primary'
+                      : 'font-medium text-text-secondary hover:text-primary'
+                  }`
+                }
               >
                 {link.name}
-              </a>
+              </NavLink>
             ))}
           </div>
 
@@ -141,18 +107,20 @@ const Navbar = () => {
             <div className="absolute inset-0 bg-surface/80 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
             <div className="relative bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <a
+                <NavLink
                   key={link.name}
-                  href={link.href}
-                  onClick={(e) => handleSmoothScroll(e, link.href)}
-                  className={`text-lg border-b border-border/50 pb-3 transition-colors ${
-                    activeSection === link.href 
-                      ? 'font-semibold text-primary' 
-                      : 'font-medium text-text-primary hover:text-primary'
-                  }`}
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `text-lg border-b border-border/50 pb-3 transition-colors ${
+                      isActive
+                        ? 'font-semibold text-primary'
+                        : 'font-medium text-text-primary hover:text-primary'
+                    }`
+                  }
                 >
                   {link.name}
-                </a>
+                </NavLink>
               ))}
               <div className="flex flex-col gap-3 mt-2">
                 <button

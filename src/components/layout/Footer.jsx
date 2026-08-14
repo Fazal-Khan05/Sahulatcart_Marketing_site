@@ -23,7 +23,7 @@ const Footer = () => {
             <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Company</h4>
             <ul className="space-y-2">
               <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">About</a></li>
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Contact</a></li>
+              <li><Link to="/contact" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Contact</Link></li>
               <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Careers</a></li>
             </ul>
           </div>

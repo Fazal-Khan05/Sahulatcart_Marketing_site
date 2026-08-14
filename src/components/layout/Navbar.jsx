@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import ComingSoon from '../ui/ComingSoon';
@@ -17,7 +17,33 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const [comingSoonType, setComingSoonType] = useState('login');
+  const [activeSection, setActiveSection] = useState('');
   const { scrollY } = useScroll();
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(`#${entry.target.id}`);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px' }
+    );
+
+    navLinks.forEach((link) => {
+      if (link.href.startsWith('#')) {
+        const id = link.href.substring(1);
+        const element = document.getElementById(id);
+        if (element) {
+          observer.observe(element);
+        }
+      }
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 50) {
@@ -30,6 +56,7 @@ const Navbar = () => {
   const handleSmoothScroll = (e, href) => {
     e.preventDefault();
     setIsMobileMenuOpen(false);
+    setActiveSection(href);
     if (href.startsWith('#')) {
       const element = document.querySelector(href);
       if (element) {
@@ -65,7 +92,7 @@ const Navbar = () => {
                 href={link.href}
                 onClick={(e) => handleSmoothScroll(e, link.href)}
                 className={`text-[15px] transition-colors ${
-                  link.name === 'Product' 
+                  activeSection === link.href 
                     ? 'font-semibold text-primary' 
                     : 'font-medium text-text-secondary hover:text-primary'
                 }`}
@@ -118,7 +145,11 @@ const Navbar = () => {
                   key={link.name}
                   href={link.href}
                   onClick={(e) => handleSmoothScroll(e, link.href)}
-                  className="text-lg font-medium text-text-primary hover:text-primary border-b border-border/50 pb-3"
+                  className={`text-lg border-b border-border/50 pb-3 transition-colors ${
+                    activeSection === link.href 
+                      ? 'font-semibold text-primary' 
+                      : 'font-medium text-text-primary hover:text-primary'
+                  }`}
                 >
                   {link.name}
                 </a>

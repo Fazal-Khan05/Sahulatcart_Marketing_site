@@ -10,7 +10,6 @@ const navLinks = [
   { name: 'Solutions', href: '/solutions' },
   { name: 'How It Works', href: '/how-it-works' },
   { name: 'Pricing', href: '/pricing' },
-  { name: 'Resources', href: '/resources' },
 ];
 
 const Navbar = () => {

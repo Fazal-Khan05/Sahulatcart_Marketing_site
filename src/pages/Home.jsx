@@ -3,6 +3,7 @@ import Hero from '../components/sections/Hero';
 import IntegrationBar from '../components/sections/IntegrationBar';
 import AISalesperson from '../components/sections/AISalesperson';
 import RuleEngine from '../components/sections/RuleEngine';
+import FAQ from '../components/sections/FAQ';
 
 const Home = () => {
   return (
@@ -11,6 +12,7 @@ const Home = () => {
       <IntegrationBar />
       <AISalesperson />
       <RuleEngine />
+      <FAQ />
     </>
   );
 };

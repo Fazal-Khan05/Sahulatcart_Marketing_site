@@ -50,18 +50,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-border mt-12 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-sm text-text-secondary">
+        <div className="border-t border-border mt-12 pt-6 flex flex-col items-center">
+          <p className="text-sm text-text-secondary text-center">
             © 2026 Sahulatcart. Fluid Commerce for the Modern Merchant.
           </p>
-          <div className="flex items-center gap-4">
-            <button className="text-text-secondary hover:text-primary transition-colors" aria-label="Region">
-              <Globe size={20} />
-            </button>
-            <button className="text-text-secondary hover:text-primary transition-colors" aria-label="Share">
-              <Share2 size={20} />
-            </button>
-          </div>
         </div>
       </div>
     </footer>

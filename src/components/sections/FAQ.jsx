@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import FadeInView from '../animations/FadeInView';
 
 const faqs = [
@@ -100,9 +101,9 @@ const FAQ = () => {
             <h3 className="font-kaisei text-2xl font-bold mb-3">Still have questions?</h3>
             <p className="text-white/80 mb-8">Our team is here to help you get started.</p>
             <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-              <button className="bg-white text-primary rounded-full px-6 py-3 font-medium hover:bg-white/90 transition shadow-sm w-full sm:w-auto">
+              <Link to="/support" className="bg-white text-primary rounded-full px-6 py-3 font-medium hover:bg-white/90 transition shadow-sm w-full sm:w-auto text-center">
                 Contact Support
-              </button>
+              </Link>
 
             </div>
           </div>

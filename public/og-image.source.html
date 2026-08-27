@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<!--
+  Source for public/og-image.png (1200x630 social share card).
+  Re-render after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+      --virtual-time-budget=12000 --window-size=1200,630 \
+      --screenshot=public/og-image.png "file://$PWD/public/og-image.source.html"
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Kaisei+Decol:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    width:1200px; height:630px; overflow:hidden;
+    background:#F5F7FA;
+    font-family:'Inter',sans-serif;
+    color:#1A1A2E;
+    position:relative;
+    -webkit-font-smoothing:antialiased;
+  }
+  .curves { position:absolute; inset:0; color:#1B6B4A; opacity:.10; }
+  .wrap {
+    position:relative; z-index:2;
+    height:100%; padding:64px 72px;
+    display:flex; align-items:center; gap:56px;
+  }
+  .left { width:664px; display:flex; flex-direction:column; height:100%; }
+
+  /* ---- logo lockup ---- */
+  .logo { display:flex; align-items:center; gap:12px; }
+  .logo img { height:52px; width:auto; }
+  .logo .word { font-family:'Kaisei Decol',serif; font-weight:700; font-size:38px; letter-spacing:-.5px; }
+  .sahulat { background:linear-gradient(to right,#6D7486,rgba(10,13,19,.7));
+             -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .cart    { background:linear-gradient(to bottom,#2E9D45 0%,#17512C 55%,#3F9E52 100%);
+             -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+  /* ---- headline ---- */
+  .head { margin-top:auto; }
+  h1 { font-family:'Kaisei Decol',serif; font-weight:700; font-size:57px; line-height:1.2; letter-spacing:-1px; white-space:nowrap; }
+  h1 .l1 { background:linear-gradient(to right,#6D7486,rgba(10,13,19,.75));
+           -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  h1 .l2 { font-style:italic; background:linear-gradient(to bottom,#2E9D45 0%,#17512C 60%,#54B268 100%);
+           -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+  .sub { margin-top:22px; font-size:23px; line-height:1.5; color:#6B7280; max-width:560px; font-weight:400; }
+
+  /* ---- footer row ---- */
+  .foot { margin-top:auto; display:flex; align-items:center; gap:14px; }
+  .domain { font-size:19px; font-weight:600; color:#1B6B4A; }
+  .dot { width:5px; height:5px; border-radius:50%; background:#D1D5DB; }
+  .tag { font-size:19px; color:#6B7280; font-weight:500; }
+
+  /* ---- chat card ---- */
+  .right { flex:1; display:flex; justify-content:center; align-items:center; }
+  .phone {
+    width:392px; background:#EFEAE2; border-radius:26px; overflow:hidden;
+    box-shadow:0 26px 60px -12px rgba(16,32,24,.30), 0 0 0 1px rgba(0,0,0,.05);
+    transform:rotate(-1.6deg);
+  }
+  .bar { background:#1B6B4A; padding:15px 20px; display:flex; align-items:center; gap:11px; }
+  .av { width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,.22);
+        display:flex; align-items:center; justify-content:center; }
+  .bar .nm { color:#fff; font-size:15px; font-weight:600; line-height:1.25; }
+  .bar .on { color:rgba(255,255,255,.75); font-size:12px; line-height:1.25; }
+  .body { padding:20px 20px 24px; display:flex; flex-direction:column; gap:13px; }
+  .b { max-width:83%; padding:11px 15px; font-size:15px; line-height:1.45; border-radius:15px;
+       box-shadow:0 1px 2px rgba(0,0,0,.10); color:#111B21; }
+  .me { align-self:flex-end; background:#D9FDD3; border-top-right-radius:4px; }
+  .ai { align-self:flex-start; background:#fff; border-top-left-radius:4px; }
+  .price { color:#1B6B4A; font-weight:700; }
+  .pill { align-self:center; margin-top:5px; background:#1B6B4A; color:#fff; font-size:13px; font-weight:600;
+          padding:8px 17px; border-radius:999px; display:flex; align-items:center; gap:7px;
+          box-shadow:0 3px 10px rgba(27,107,74,.35); }
+</style>
+</head>
+<body>
+  <svg class="curves" viewBox="0 0 1200 630" preserveAspectRatio="none" fill="none">
+    <path d="M-60 300 C 250 150, 500 450, 1260 220" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M-60 390 C 300 230, 650 530, 1260 300" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M-60 480 C 380 320, 720 620, 1260 380" stroke="currentColor" stroke-width="1.5"/>
+  </svg>
+
+  <div class="wrap">
+    <div class="left">
+      <div class="logo">
+        <img src="logo.png" alt="" />
+        <span class="word"><span class="sahulat">Sahulat</span><span class="cart">cart</span></span>
+      </div>
+
+      <div class="head">
+        <h1>
+          <span class="l1">Aap so jao.</span><br/>
+          <span class="l2">AI karega sab kuch.</span>
+        </h1>
+        <p class="sub">AI that answers questions, negotiates prices, and closes orders on WhatsApp — 24/7.</p>
+      </div>
+
+      <div class="foot">
+        <span class="domain">sahulatcart.com</span>
+        <span class="dot"></span>
+        <span class="tag">Trusted by 2000+ merchants in Pakistan</span>
+      </div>
+    </div>
+
+    <div class="right">
+      <div class="phone">
+        <div class="bar">
+          <div class="av">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff">
+              <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/>
+            </svg>
+          </div>
+          <div>
+            <div class="nm">Sahulat AI</div>
+            <div class="on">online</div>
+          </div>
+        </div>
+        <div class="body">
+          <div class="b me">Bhai yeh bag available hai?</div>
+          <div class="b ai">Jee bilkul! Price <span class="price">Rs. 3,200</span> hai, free delivery ke saath.</div>
+          <div class="b me">2,800 mein de do</div>
+          <div class="b ai">Aapke liye <span class="price">Rs. 2,950</span> — best deal!</div>
+          <div class="b me">Done kar dain ✅</div>
+          <div class="pill">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+            Order Confirmed
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

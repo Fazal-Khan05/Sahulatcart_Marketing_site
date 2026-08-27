@@ -4,6 +4,7 @@ import AISalesperson from '@/components/sections/AISalesperson';
 import RuleEngine from '@/components/sections/RuleEngine';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   description:
@@ -16,6 +17,7 @@ export const metadata = pageMetadata({
 export default function HomePage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <Hero />
       <IntegrationBar />
       <AISalesperson />

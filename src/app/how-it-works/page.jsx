@@ -1,6 +1,7 @@
 import HowItWorksSection from '@/components/sections/HowItWorks';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: 'How It Works — Setup in Under 10 Minutes',
@@ -12,6 +13,7 @@ export const metadata = pageMetadata({
 export default function HowItWorksPage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <HowItWorksSection />
       <FAQ />
     </>

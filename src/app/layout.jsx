@@ -2,9 +2,11 @@ import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HydrationFlag from '@/components/utils/HydrationFlag';
+import { JsonLd, organizationSchema, websiteSchema, softwareSchema } from '@/lib/structuredData';
 
+// Kept under ~155 chars so Google doesn't truncate it mid-sentence.
 const DESCRIPTION =
-  'Sahulatcart turns customer conversations into automated sales with AI that answers questions, recommends products, negotiates prices, and helps close orders. Trusted by 2000+ merchants in Pakistan.';
+  'WhatsApp AI salesperson for Pakistani merchants. Answers in Roman Urdu, negotiates prices, and closes orders automatically. Trusted by 2000+ merchants.';
 
 const OG_DESCRIPTION =
   'Your AI sales team, built into your conversations. Transform WhatsApp inquiries into completed orders instantly.';
@@ -65,6 +67,9 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <JsonLd schema={organizationSchema} />
+        <JsonLd schema={websiteSchema} />
+        <JsonLd schema={softwareSchema} />
         <HydrationFlag />
         <div className="min-h-screen bg-surface overflow-x-hidden">
           <Navbar />

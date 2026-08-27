@@ -1,6 +1,7 @@
 import ContactSection from '@/components/sections/Contact';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: 'Book a Demo',
@@ -12,6 +13,7 @@ export const metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <ContactSection />
       <FAQ />
     </>

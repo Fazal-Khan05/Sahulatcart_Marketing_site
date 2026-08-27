@@ -2,6 +2,7 @@ import SolutionsSection from '@/components/sections/Solutions';
 import ChatToCheckout from '@/components/sections/ChatToCheckout';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: 'Solutions — WhatsApp & Shopify Automation',
@@ -13,6 +14,7 @@ export const metadata = pageMetadata({
 export default function SolutionsPage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <SolutionsSection />
       <ChatToCheckout />
       <FAQ />

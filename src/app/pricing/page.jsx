@@ -1,6 +1,7 @@
 import PricingSection from '@/components/sections/Pricing';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: 'Pricing — Start Free, Scale as You Grow',
@@ -12,6 +13,7 @@ export const metadata = pageMetadata({
 export default function PricingPage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <PricingSection />
       <FAQ />
     </>

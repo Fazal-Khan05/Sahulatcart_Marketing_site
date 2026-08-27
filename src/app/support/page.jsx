@@ -1,6 +1,7 @@
 import SupportSection from '@/components/sections/Support';
 import FAQ from '@/components/sections/FAQ';
 import { pageMetadata } from '@/lib/metadata';
+import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
   title: 'Support',
@@ -12,6 +13,7 @@ export const metadata = pageMetadata({
 export default function SupportPage() {
   return (
     <>
+      <JsonLd schema={faqSchema} />
       <SupportSection />
       <FAQ />
     </>

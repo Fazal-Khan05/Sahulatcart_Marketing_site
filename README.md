@@ -86,9 +86,18 @@ publishable key — it identifies the destination inbox and is safe to ship in t
 
 ## Deployment
 
-Deployed on Vercel, which auto-detects Next.js — no `vercel.json` needed. (The old Vite
-setup used one to rewrite every path to `index.html`; that file must stay deleted, since it
-would shadow Next's routing.)
+Deployed on Vercel. Build configuration lives in `vercel.json` rather than the dashboard, so
+it is versioned with the code and applies to every deployment automatically:
+
+```json
+{ "framework": "nextjs", "buildCommand": "next build", "installCommand": "npm ci" }
+```
+
+Values in `vercel.json` take precedence over the dashboard's Build & Development Settings.
+The Node major version comes from `engines.node` in `package.json`.
+
+Note the old Vite `vercel.json` rewrote every path to `/index.html`. That rewrite must never
+come back — it would shadow Next's routing and break every route.
 
 SEO files are served from `public/`: `sitemap.xml`, `robots.txt`, and the Google Search
 Console verification file. Add new routes to `sitemap.xml` when you create them.

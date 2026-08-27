@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Plug, Package, Settings, Bot, ShoppingCart, Sparkles, MessageCircle, BarChart3 } from 'lucide-react';
+import { Plug, Package, Settings, Bot, ShoppingCart, Sparkles, BarChart3 } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
 import StaggerContainer from '../animations/StaggerContainer';
 

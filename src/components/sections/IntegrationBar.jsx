@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ShoppingBag, MessageSquare, Briefcase, LayoutGrid } from 'lucide-react';
-import FadeInView from '../animations/FadeInView';
 
 const IntegrationBar = () => {
   const integrations = [

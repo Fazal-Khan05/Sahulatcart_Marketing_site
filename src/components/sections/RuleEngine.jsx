@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useInView } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { Settings, ShieldCheck, TrendingUp } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
 

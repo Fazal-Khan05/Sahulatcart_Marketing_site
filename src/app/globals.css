@@ -44,3 +44,30 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-primary);
 }
+
+/*
+ * Hydration reveal failsafe.
+ *
+ * Framer Motion serialises its `initial` state into the prerendered HTML as inline
+ * `opacity:0`, so roughly 30 elements per page ship invisible and only appear once
+ * ~160KB of JS has downloaded and hydrated. On a slow connection the page looks
+ * blank and stuck.
+ *
+ * Until <html> is marked `hydrated` (see components/utils/HydrationFlag.jsx), fade
+ * that content in anyway. CSS animations outrank inline styles, so this wins over
+ * Motion's inline opacity. Once hydration lands the selector stops matching and
+ * scroll-triggered animations below the fold behave normally.
+ *
+ * The 2s delay is deliberately longer than a healthy hydration, so this only ever
+ * fires when the user would otherwise be staring at nothing.
+ */
+@keyframes sc-hydration-failsafe {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html:not(.hydrated) [style*="opacity:0"] {
+  animation: sc-hydration-failsafe 0.4s ease-out 2s forwards;
+}

@@ -1,6 +1,7 @@
 import './globals.css';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import HydrationFlag from '@/components/utils/HydrationFlag';
 
 const DESCRIPTION =
   'Sahulatcart turns customer conversations into automated sales with AI that answers questions, recommends products, negotiates prices, and helps close orders. Trusted by 2000+ merchants in Pakistan.';
@@ -64,6 +65,7 @@ export default function RootLayout({ children }) {
         />
       </head>
       <body>
+        <HydrationFlag />
         <div className="min-h-screen bg-surface overflow-x-hidden">
           <Navbar />
           <main>{children}</main>

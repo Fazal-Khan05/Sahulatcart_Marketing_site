@@ -7,8 +7,9 @@ import { pageMetadata } from '@/lib/metadata';
 import { JsonLd, faqSchema } from '@/lib/structuredData';
 
 export const metadata = pageMetadata({
+  // Kept under ~155 chars so Google doesn't truncate it mid-sentence.
   description:
-    'Sahulatcart turns customer conversations into automated sales with AI that answers questions, recommends products, negotiates prices, and helps close orders. Trusted by 2000+ merchants in Pakistan.',
+    'WhatsApp AI salesperson for Pakistani merchants. Answers in Roman Urdu, negotiates prices, and closes orders automatically. Trusted by 2000+ merchants.',
   ogDescription:
     'Your AI sales team, built into your conversations. Transform WhatsApp inquiries into completed orders instantly.',
   path: '/',

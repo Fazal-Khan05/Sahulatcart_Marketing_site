@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, MessageCircleQuestion, Send, CheckCircle, Loader2, Headset } from 'lucide-react';
 import FadeInView from '../animations/FadeInView';
+import { submitToWeb3Forms } from '../../lib/web3forms';
 
 const Support = () => {
   const [formData, setFormData] = useState({
@@ -21,31 +22,22 @@ const Support = () => {
     setStatus('loading');
 
     try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '36dc09ed-8b31-44e3-ae72-39ca50010617',
-          subject: 'New Support Request from Sahulatcart',
-          from_name: 'Sahulatcart Support Form',
-          name: formData.name,
-          contact: formData.contact,
-          business: formData.business,
-          issue: formData.issue,
-        }),
+      const success = await submitToWeb3Forms({
+        subject: 'New Support Request from Sahulatcart',
+        from_name: 'Sahulatcart Support Form',
+        name: formData.name,
+        contact: formData.contact,
+        business: formData.business,
+        issue: formData.issue,
       });
 
-      const result = await response.json();
-      if (result.success) {
+      if (success) {
         setStatus('success');
         setFormData({ name: '', contact: '', business: '', issue: '' });
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };

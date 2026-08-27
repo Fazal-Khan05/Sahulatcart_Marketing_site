@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Sparkles, Bell } from 'lucide-react';
+import { submitToWeb3Forms } from '../../lib/web3forms';
 
 const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
   const titles = {
@@ -17,27 +18,18 @@ const ComingSoon = ({ isOpen, onClose, type = 'login' }) => {
     setStatus('loading');
     
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify({
-          access_key: "36dc09ed-8b31-44e3-ae72-39ca50010617",
-          email: email,
-          subject: "New Waitlist Signup from Sahulatcart",
-          from_name: "Sahulatcart Waitlist",
-        }),
+      const success = await submitToWeb3Forms({
+        email: email,
+        subject: 'New Waitlist Signup from Sahulatcart',
+        from_name: 'Sahulatcart Waitlist',
       });
 
-      const result = await response.json();
-      if (result.success) {
+      if (success) {
         setStatus('success');
       } else {
         setStatus('error');
       }
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };

@@ -6,6 +6,24 @@ import { Bot, MessageCircle, Shield, BarChart3, Sparkles, Check, ShoppingBag } f
 import FadeInView from '../animations/FadeInView';
 import StaggerContainer from '../animations/StaggerContainer';
 
+/**
+ * Shared shell for the three feature cards. Each card's footer visual differs
+ * (chat snippet, price bar, inventory chart), so that part comes in as children.
+ */
+const FeatureCard = ({ icon, title, description, children }) => (
+  <motion.div
+    variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+    className="bg-white rounded-2xl p-7 border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+  >
+    <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-5">
+      {icon}
+    </div>
+    <h3 className="text-xl font-bold text-text-primary mb-3">{title}</h3>
+    <p className="text-text-secondary text-sm flex-grow">{description}</p>
+    {children}
+  </motion.div>
+);
+
 const AISalesperson = () => {
   const chatContainerVariants = {
     hidden: {},
@@ -200,20 +218,12 @@ const AISalesperson = () => {
 
         {/* Row 2: Feature Cards */}
         <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          
-          {/* Card 1 */}
-          <motion.div 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="bg-white rounded-2xl p-7 border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+
+          <FeatureCard
+            icon={<MessageCircle size={24} />}
+            title="Contextual Replies"
+            description="Understands natural language and intent, allowing customers to chat in their local languages and dialects fluidly."
           >
-            <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-5">
-              <MessageCircle size={24} />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary mb-3">Contextual Replies</h3>
-            <p className="text-text-secondary text-sm flex-grow">
-              Understands natural language and intent, allowing customers to chat in their local languages and dialects fluidly.
-            </p>
-            
             <div className="mt-6 pt-6 border-t border-border/50">
               <div className="flex flex-col gap-2">
                 <div className="self-end bg-surface-alt rounded-xl rounded-tr-sm px-3 py-1.5 text-[11px] text-text-secondary">
@@ -230,21 +240,13 @@ const AISalesperson = () => {
                 Roman Urdu • English • Punjabi
               </div>
             </div>
-          </motion.div>
+          </FeatureCard>
 
-          {/* Card 2 */}
-          <motion.div 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="bg-white rounded-2xl p-7 border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          <FeatureCard
+            icon={<Shield size={24} />}
+            title="Smart Negotiation"
+            description="Automatically negotiates with customers within your predefined margin guardrails to maximize conversion without losing profit."
           >
-            <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-5">
-              <Shield size={24} />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary mb-3">Smart Negotiation</h3>
-            <p className="text-text-secondary text-sm flex-grow">
-              Automatically negotiates with customers within your predefined margin guardrails to maximize conversion without losing profit.
-            </p>
-            
             <div className="mt-6 pt-6 border-t border-border/50">
               <div className="flex justify-between text-xs text-text-secondary mb-2">
                 <span>Listed: Rs. 5,000</span>
@@ -263,21 +265,13 @@ const AISalesperson = () => {
                 <Check size={12} /> Margin Protected
               </div>
             </div>
-          </motion.div>
+          </FeatureCard>
 
-          {/* Card 3 */}
-          <motion.div 
-            variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-            className="bg-white rounded-2xl p-7 border border-border shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+          <FeatureCard
+            icon={<BarChart3 size={24} />}
+            title="Product Intelligence"
+            description="Reads your inventory in real-time. Suggests relevant cross-sells and alternative products when items are out of stock."
           >
-            <div className="w-12 h-12 rounded-xl bg-primary-light flex items-center justify-center text-primary mb-5">
-              <BarChart3 size={24} />
-            </div>
-            <h3 className="text-xl font-bold text-text-primary mb-3">Product Intelligence</h3>
-            <p className="text-text-secondary text-sm flex-grow">
-              Reads your inventory in real-time. Suggests relevant cross-sells and alternative products when items are out of stock.
-            </p>
-            
             <div className="mt-6 pt-6 border-t border-border/50 flex flex-col justify-end h-[100px]">
               <div className="flex items-end gap-2 h-12 mb-3">
                 <motion.div initial={{ height: 0 }} whileInView={{ height: '40%' }} viewport={{ once: true }} transition={{ duration: 0.8, delay: 0.1 }} className="flex-1 bg-primary-light rounded-t-sm" />
@@ -289,7 +283,7 @@ const AISalesperson = () => {
                 Inventory Sync • Cross-sells • Upsells
               </div>
             </div>
-          </motion.div>
+          </FeatureCard>
 
         </StaggerContainer>
       </div>

@@ -49,6 +49,20 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        {/*
+          Loaded here rather than via an @import in globals.css: a CSS @import
+          serialises the font request behind the stylesheet. next/font is not an
+          option — Kaisei Decol is a Japanese family and next/font fetches dozens
+          of subset chunks at build time, which times out.
+        */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Kaisei+Decol:wght@400;500;700&display=swap"
+        />
+      </head>
       <body>
         <div className="min-h-screen bg-surface overflow-x-hidden">
           <Navbar />

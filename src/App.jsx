@@ -7,6 +7,7 @@ import HowItWorks from './pages/HowItWorks';
 import Pricing from './pages/Pricing';
 import Contact from './pages/Contact';
 import Support from './pages/Support';
+import NotFound from './pages/NotFound';
 import ScrollToTop from './components/utils/ScrollToTop';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/support" element={<Support />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
         <Footer />

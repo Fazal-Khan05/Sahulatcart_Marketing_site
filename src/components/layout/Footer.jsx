@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Globe, Share2 } from 'lucide-react';
 import Logo from '../ui/Logo';
 
 const Footer = () => {
@@ -32,7 +31,7 @@ const Footer = () => {
           <div>
             <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Product</h4>
             <ul className="space-y-2">
-              <li><Link to="/product" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Features</Link></li>
+              <li><Link to="/#product" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Features</Link></li>
               <li><Link to="/solutions" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Solutions</Link></li>
               <li><Link to="/pricing" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Pricing</Link></li>
             </ul>

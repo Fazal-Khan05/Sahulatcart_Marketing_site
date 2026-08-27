@@ -1,16 +1,74 @@
-# React + Vite
+# Sahulatcart — Marketing Site
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Marketing site for **Sahulatcart**, an AI sales agent for Pakistani merchants that handles
+WhatsApp conversations, negotiates prices, and closes orders automatically.
 
-Currently, two official plugins are available:
+Live at [www.sahulatcart.com](https://www.sahulatcart.com).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Stack
 
-## React Compiler
+- **React 19** with **React Router 7** (client-side routing)
+- **Vite 8** for dev server and builds
+- **Tailwind CSS 4** — theme tokens live in `src/index.css` via `@theme`, there is no `tailwind.config.js`
+- **Framer Motion** for scroll-triggered and staggered animations
+- **lucide-react** for icons
+- **Oxlint** for linting
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Getting started
 
-## Expanding the Oxlint configuration
+```bash
+npm install
+npm run dev
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the dev server with HMR |
+| `npm run build` | Production build into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run Oxlint |
+
+## Structure
+
+```
+src/
+├── App.jsx                  Router and page shell (Navbar + Routes + Footer)
+├── index.css                Tailwind theme tokens, fonts, base styles
+├── pages/                   Thin route components that compose sections
+├── components/
+│   ├── layout/              Navbar, Footer
+│   ├── sections/            Page content — most of the site lives here
+│   ├── ui/                  Logo, ComingSoon modal
+│   ├── animations/          FadeInView, StaggerContainer
+│   └── utils/               ScrollToTop
+└── lib/
+    └── web3forms.js         Form submission helper
+```
+
+Pages are deliberately thin: each one stacks section components and ends with `<FAQ />`.
+
+### Routes
+
+| Route | Page |
+| --- | --- |
+| `/` | Hero, integrations, AI salesperson, rule engine, FAQ |
+| `/solutions` | Solutions, chat-to-checkout, FAQ |
+| `/how-it-works` | Setup timeline, negotiation demo, FAQ |
+| `/pricing` | Plan comparison, FAQ |
+| `/contact` | Demo booking form, FAQ |
+| `/support` | Support request form, FAQ |
+| `*` | 404 |
+
+## Forms
+
+All three forms (demo booking, support, and the waitlist in the Coming Soon modal) post to
+[Web3Forms](https://web3forms.com) through `src/lib/web3forms.js`. The access key is a
+publishable key — it identifies the destination inbox and is safe to ship in the bundle.
+
+## Deployment
+
+Deployed on Vercel. `vercel.json` rewrites all paths to `/index.html` so client-side routing
+works on direct navigation and refresh.
+
+SEO files are served from `public/`: `sitemap.xml`, `robots.txt`, and the Google Search
+Console verification file. Add new routes to `sitemap.xml` when you create them.

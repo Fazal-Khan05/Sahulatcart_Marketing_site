@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'framer-motion';
 import { Settings, ShieldCheck, TrendingUp } from 'lucide-react';

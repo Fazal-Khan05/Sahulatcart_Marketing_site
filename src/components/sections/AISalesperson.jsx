@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Bot, MessageCircle, Shield, BarChart3, Sparkles, Check, ShoppingBag } from 'lucide-react';

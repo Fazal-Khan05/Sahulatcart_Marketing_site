@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { Plug, Package, Settings, Bot, ShoppingCart, Sparkles, BarChart3 } from 'lucide-react';

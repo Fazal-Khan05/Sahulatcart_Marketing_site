@@ -1,9 +1,13 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 import { Home, ArrowLeft } from 'lucide-react';
-import FadeInView from '../components/animations/FadeInView';
+import FadeInView from '@/components/animations/FadeInView';
 
-const NotFound = () => {
+export const metadata = {
+  title: 'Page Not Found',
+  robots: { index: false, follow: true },
+};
+
+export default function NotFound() {
   return (
     <section className="min-h-screen bg-surface flex items-center justify-center px-6 pt-32 pb-24">
       <FadeInView className="text-center max-w-lg">
@@ -14,18 +18,18 @@ const NotFound = () => {
           Yeh page nahi mila.
         </h1>
         <p className="text-text-secondary text-lg leading-relaxed mb-10">
-          The page you're looking for doesn't exist or has moved. Let's get you back on track.
+          The page you&apos;re looking for doesn&apos;t exist or has moved. Let&apos;s get you back on track.
         </p>
         <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
           <Link
-            to="/"
+            href="/"
             className="inline-flex items-center justify-center gap-2 bg-primary text-white rounded-full px-7 py-3 font-semibold text-[15px] hover:bg-primary-dark transition-colors shadow-lg shadow-primary/25 w-full sm:w-auto"
           >
             <Home className="w-4 h-4" />
             Back to Home
           </Link>
           <Link
-            to="/support"
+            href="/support"
             className="inline-flex items-center justify-center gap-2 border-2 border-primary text-primary rounded-full px-7 py-3 font-semibold text-[15px] hover:bg-primary-light transition-colors w-full sm:w-auto"
           >
             <ArrowLeft className="w-4 h-4" />
@@ -35,6 +39,4 @@ const NotFound = () => {
       </FadeInView>
     </section>
   );
-};
-
-export default NotFound;
+}

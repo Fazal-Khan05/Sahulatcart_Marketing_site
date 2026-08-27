@@ -7,9 +7,9 @@ Live at [www.sahulatcart.com](https://www.sahulatcart.com).
 
 ## Stack
 
-- **React 19** with **React Router 7** (client-side routing)
-- **Vite 8** for dev server and builds
-- **Tailwind CSS 4** — theme tokens live in `src/index.css` via `@theme`, there is no `tailwind.config.js`
+- **Next.js 16** (App Router) — every route is prerendered to static HTML
+- **React 19**
+- **Tailwind CSS 4** — theme tokens live in `src/app/globals.css` via `@theme`, there is no `tailwind.config.js`
 - **Framer Motion** for scroll-triggered and staggered animations
 - **lucide-react** for icons
 - **Oxlint** for linting
@@ -24,28 +24,35 @@ npm run dev
 | Script | Description |
 | --- | --- |
 | `npm run dev` | Start the dev server with HMR |
-| `npm run build` | Production build into `dist/` |
-| `npm run preview` | Serve the production build locally |
+| `npm run build` | Production build |
+| `npm run start` | Serve the production build locally |
 | `npm run lint` | Run Oxlint |
 
 ## Structure
 
 ```
 src/
-├── App.jsx                  Router and page shell (Navbar + Routes + Footer)
-├── index.css                Tailwind theme tokens, fonts, base styles
-├── pages/                   Thin route components that compose sections
+├── app/
+│   ├── layout.jsx           Root layout: <html>, Navbar, Footer, base metadata
+│   ├── globals.css          Tailwind theme tokens, fonts, base styles
+│   ├── page.jsx             /
+│   ├── not-found.jsx        404
+│   └── <route>/page.jsx     One directory per route
 ├── components/
-│   ├── layout/              Navbar, Footer
+│   ├── layout/              Navbar (client), Footer (server)
 │   ├── sections/            Page content — most of the site lives here
 │   ├── ui/                  Logo, ComingSoon modal
-│   ├── animations/          FadeInView, StaggerContainer
-│   └── utils/               ScrollToTop
+│   └── animations/          FadeInView, StaggerContainer
 └── lib/
+    ├── metadata.js          Per-page metadata builder
     └── web3forms.js         Form submission helper
 ```
 
 Pages are deliberately thin: each one stacks section components and ends with `<FAQ />`.
+
+Anything using Framer Motion, state, or event handlers carries `'use client'`. Those
+components are still server-rendered into the initial HTML — the directive only controls
+hydration, so page content remains fully crawlable.
 
 ### Routes
 
@@ -57,7 +64,19 @@ Pages are deliberately thin: each one stacks section components and ends with `<
 | `/pricing` | Plan comparison, FAQ |
 | `/contact` | Demo booking form, FAQ |
 | `/support` | Support request form, FAQ |
-| `*` | 404 |
+| `*` | 404 (returns a real 404 status) |
+
+## Metadata
+
+`src/lib/metadata.js` builds each page's title, description, canonical, and social tags.
+
+Next shallow-merges metadata: a page that defines `openGraph` **replaces** the layout's copy
+rather than merging into it. Every page therefore spells the whole object out — otherwise it
+silently inherits the layout's `og:url` and each route claims to be the homepage. Use the
+`pageMetadata()` helper rather than hand-writing the object.
+
+The social share card is `public/og-image.png` (1200×630). Its source is kept beside it as
+`public/og-image.source.html`, with the re-render command in a comment at the top.
 
 ## Forms
 
@@ -67,8 +86,9 @@ publishable key — it identifies the destination inbox and is safe to ship in t
 
 ## Deployment
 
-Deployed on Vercel. `vercel.json` rewrites all paths to `/index.html` so client-side routing
-works on direct navigation and refresh.
+Deployed on Vercel, which auto-detects Next.js — no `vercel.json` needed. (The old Vite
+setup used one to rewrite every path to `index.html`; that file must stay deleted, since it
+would shadow Next's routing.)
 
 SEO files are served from `public/`: `sitemap.xml`, `robots.txt`, and the Google Search
 Console verification file. Add new routes to `sitemap.xml` when you create them.

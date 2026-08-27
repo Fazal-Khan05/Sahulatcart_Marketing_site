@@ -1,5 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import ComingSoon from '../ui/ComingSoon';
@@ -17,6 +20,11 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [comingSoonOpen, setComingSoonOpen] = useState(false);
   const [comingSoonType, setComingSoonType] = useState('login');
+  const pathname = usePathname();
+
+  /* Mirrors react-router's NavLink: exact match for "/", prefix match elsewhere. */
+  const isActive = (href) =>
+    href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   const openComingSoon = (type) => {
     setComingSoonType(type);
@@ -33,27 +41,24 @@ const Navbar = () => {
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-6 h-18 flex items-center justify-between">
-          <NavLink to="/" onClick={() => setIsMobileMenuOpen(false)}>
+          <Link href="/" onClick={() => setIsMobileMenuOpen(false)}>
             <Logo className="relative z-10" />
-          </NavLink>
+          </Link>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <NavLink
+              <Link
                 key={link.name}
-                to={link.href}
-                end={link.href === '/'}
-                className={({ isActive }) =>
-                  `text-[15px] transition-colors ${
-                    isActive
-                      ? 'font-semibold text-primary'
-                      : 'font-medium text-text-secondary hover:text-primary'
-                  }`
-                }
+                href={link.href}
+                className={`text-[15px] transition-colors ${
+                  isActive(link.href)
+                    ? 'font-semibold text-primary'
+                    : 'font-medium text-text-secondary hover:text-primary'
+                }`}
               >
                 {link.name}
-              </NavLink>
+              </Link>
             ))}
           </div>
 
@@ -96,21 +101,18 @@ const Navbar = () => {
             <div className="absolute inset-0 bg-surface/80 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)} />
             <div className="relative bg-white shadow-xl rounded-2xl p-6 flex flex-col gap-4">
               {navLinks.map((link) => (
-                <NavLink
+                <Link
                   key={link.name}
-                  to={link.href}
-                  end={link.href === '/'}
+                  href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={({ isActive }) =>
-                    `text-lg border-b border-border/50 pb-3 transition-colors ${
-                      isActive
-                        ? 'font-semibold text-primary'
-                        : 'font-medium text-text-primary hover:text-primary'
-                    }`
-                  }
+                  className={`text-lg border-b border-border/50 pb-3 transition-colors ${
+                    isActive(link.href)
+                      ? 'font-semibold text-primary'
+                      : 'font-medium text-text-primary hover:text-primary'
+                  }`}
                 >
                   {link.name}
-                </NavLink>
+                </Link>
               ))}
               <div className="flex flex-col gap-3 mt-2">
                 <button

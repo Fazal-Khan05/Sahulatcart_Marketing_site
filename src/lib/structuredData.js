@@ -1,4 +1,5 @@
 import { faqs } from './faqs';
+import { socialProfiles } from './socialProfiles';
 
 const SITE_URL = 'https://www.sahulatcart.com';
 
@@ -28,6 +29,9 @@ export const organizationSchema = {
   name: 'Sahulatcart',
   alternateName: BRAND_VARIANTS,
   url: SITE_URL,
+  // Ties the social profiles to this brand, which helps search engines resolve
+  // "sahulatcart" to this entity rather than the other Sahulat-named businesses.
+  sameAs: socialProfiles.map((p) => p.href),
   logo: `${SITE_URL}/logo.png`,
   image: `${SITE_URL}/og-image.png`,
   description:

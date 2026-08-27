@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Logo from '../ui/Logo';
+import SocialLinks from '../ui/SocialLinks';
 
 const Footer = () => {
   return (
@@ -15,15 +16,16 @@ const Footer = () => {
             <p className="text-text-secondary text-sm max-w-xs mt-4 leading-relaxed">
               Sahulatcart: Seamless commerce through the metaphor of flow. Pakistani commerce, evolved.
             </p>
+            <SocialLinks className="mt-6" />
           </div>
 
           {/* Column 2 */}
           <div>
             <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Company</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">About</a></li>
+              <li><Link href="/#product" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">About</Link></li>
               <li><Link href="/contact" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Contact</Link></li>
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Careers</a></li>
+              <li><a href="mailto:sahulatcart2026@gmail.com?subject=Careers%20at%20Sahulatcart" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Careers</a></li>
             </ul>
           </div>
 
@@ -41,9 +43,8 @@ const Footer = () => {
           <div>
             <h4 className="text-xs uppercase tracking-wider font-semibold text-text-primary mb-4">Resources</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Blog</a></li>
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Documentation</a></li>
-              <li><a href="#" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">FAQ</a></li>
+              <li><Link href="/how-it-works" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">Documentation</Link></li>
+              <li><Link href="/#resources" className="text-sm text-text-secondary hover:text-primary transition-colors block py-1">FAQ</Link></li>
             </ul>
           </div>
         </div>

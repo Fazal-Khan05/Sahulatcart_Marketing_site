@@ -26,8 +26,7 @@ const plans = [
   },
   {
     name: 'Growth',
-    price: 'Rs. 5,000',
-    period: '/mo',
+    price: 'Custom',
     blurb: 'For growing businesses',
     cta: 'Start Growing',
     featured: true,
